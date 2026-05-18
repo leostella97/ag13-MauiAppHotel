@@ -4,24 +4,24 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <!-- Note: For Android please see also Platforms\Android\Resources\values\colors.xml -->
-
-    <Color x:Key="Verde">Green</Color>
-    
-    <Color x:Key="Primary">#512BD4</Color>
-    <Color x:Key="PrimaryDark">#ac99ea</Color>
-    <Color x:Key="PrimaryDarkText">#242424</Color>
-    <Color x:Key="Secondary">#DFD8F7</Color>
-    <Color x:Key="SecondaryDarkText">#9880e5</Color>
-    <Color x:Key="Tertiary">#2B0B98</Color>
+    <!-- Paleta vibrante para o tema hotel (colorido e acolhedor) -->
+    <Color x:Key="Primary">#FF6B35</Color> <!-- Laranja vibrante (cor principal) -->
+    <Color x:Key="PrimaryDark">#E85A26</Color> <!-- Laranja escuro para hover/active -->
+    <Color x:Key="PrimaryDarkText">#FFFFFF</Color> <!-- Texto branco sobre primary -->
+    <Color x:Key="Secondary">#004E89</Color> <!-- Azul marinho (cor secundária) -->
+    <Color x:Key="SecondaryDarkText">#003366</Color> <!-- Azul escuro para texto -->
+    <Color x:Key="Tertiary">#1A936F</Color> <!-- Verde esmeralda (destaque) -->
 
     <Color x:Key="White">White</Color>
     <Color x:Key="Black">Black</Color>
-    <Color x:Key="Magenta">#D600AA</Color>
+    <Color x:Key="Magenta">#D600AA</Color> <!-- Rosa magenta (acento) -->
+    <Color x:Key="Gold">#FFD700</Color> <!-- Dourado (luxo hotel) -->
+    <Color x:Key="Coral">#FF6B6B</Color> <!-- Coral claro -->
+    <Color x:Key="Teal">#0B9B8A</Color> <!-- Azul petróleo -->
     <Color x:Key="MidnightBlue">#190649</Color>
     <Color x:Key="OffBlack">#1f1f1f</Color>
 
-    <Color x:Key="Gray100">#E1E1E1</Color>
+    <Color x:Key="Gray100">#F0F0F0</Color>
     <Color x:Key="Gray200">#C8C8C8</Color>
     <Color x:Key="Gray300">#ACACAC</Color>
     <Color x:Key="Gray400">#919191</Color>
@@ -30,11 +30,13 @@
     <Color x:Key="Gray900">#212121</Color>
     <Color x:Key="Gray950">#141414</Color>
 
+    <!-- Brushes para usar nos layouts -->
     <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/>
     <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}"/>
     <SolidColorBrush x:Key="TertiaryBrush" Color="{StaticResource Tertiary}"/>
     <SolidColorBrush x:Key="WhiteBrush" Color="{StaticResource White}"/>
     <SolidColorBrush x:Key="BlackBrush" Color="{StaticResource Black}"/>
+    <SolidColorBrush x:Key="GoldBrush" Color="{StaticResource Gold}"/>
 
     <SolidColorBrush x:Key="Gray100Brush" Color="{StaticResource Gray100}"/>
     <SolidColorBrush x:Key="Gray200Brush" Color="{StaticResource Gray200}"/>

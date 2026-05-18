@@ -1,25 +1,39 @@
-﻿namespace MauiAppHotel
+﻿using MauiAppHotel.Views; // namespace das páginas de navegação
+
+namespace MauiAppHotel
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
-
+        // constructor da página inicial
         public MainPage()
         {
-            InitializeComponent();
+            InitializeComponent(); // inicia os componentes XAML
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        // navega para a tela de contratação de reserva
+        private async void OnReservarClicked(object sender, EventArgs e)
         {
-            count++;
+            await Navigation.PushAsync(new ContratacaoHospedagem()); // empilha a página de reserva
+        }
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
+        // navega para a tela de reserva contratada
+        private async void OnReservaClicked(object sender, EventArgs e)
+        {
+            await DisplayAlert("Aviso", "Faça uma reserva primeiro!", "OK"); // alerta
+        }
 
-            SemanticScreenReader.Announce(CounterBtn.Text);
+        // navega para a tela "Sobre" onde tem as info
+        private async void OnSobreClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Sobre()); // empilha a página sobre
+        }
+
+        // exibe informações de contato do hotel
+        private async void OnContatoClicked(object sender, EventArgs e)
+        {
+            await DisplayAlert("Contato",
+                "📞 (11) 4002-8922\n📧 contato@hotelmaui.com",
+                "OK"); // exibe alerta com dados de contato com o telefone do yudi que vai dar playstation 2
         }
     }
-
 }

@@ -10,12 +10,7 @@
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
-
-            <Style TargetType="Label">
-                <Setter Property="VerticalTextAlignment" Value="Center" />
-                <Setter Property="HorizontalTextAlignment" Value="Center" />
-            </Style>
-            
+            <!-- o estilo padrão de Label é definido em Styles.xaml com MontserratRegular -->
         </ResourceDictionary>
     </Application.Resources>
     

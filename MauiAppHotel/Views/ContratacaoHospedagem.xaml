@@ -4,105 +4,161 @@
              x:Class="MauiAppHotel.Views.ContratacaoHospedagem"
              Title="ContratacaoHospedagem"
              NavigationPage.HasNavigationBar="False"
-             BackgroundColor="{StaticResource Gray100}">
+             BackgroundColor="White"> <!-- fundo branco -->
 
-    <VerticalStackLayout VerticalOptions="CenterAndExpand"
-                         Padding="10"
-                         Spacing="10"> <!-- espaçamento entre os elementos -->
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="16">
 
-        <Label Text="Cálculo da Diária"
-               FontFamily="Kalam"
-               FontSize="50"
-               TextColor="{StaticResource Primary}" /> <!-- título da página -->
+            <!-- cabeçalho laranja (frame com cantos arredondados) -->
+            <Frame BackgroundColor="{StaticResource Primary}"
+                   CornerRadius="16"
+                   Padding="16"
+                   HeightRequest="100"
+                   HasShadow="False"
+                   BorderColor="Transparent">
+                <VerticalStackLayout VerticalOptions="Center" Spacing="4">
+                    <Label Text="📝 Reserva"
+                           FontSize="28"
+                           HorizontalTextAlignment="Center" />
+                    <Label Text="Calcule sua diária"
+                           FontFamily="MontserratBold"
+                           FontSize="22"
+                           TextColor="White"
+                           HorizontalTextAlignment="Center" />
+                </VerticalStackLayout>
+            </Frame>
 
-        <!-- Menu global abaixo do título -->
-        <HorizontalStackLayout Spacing="10" HorizontalOptions="Center" Padding="0,10,0,0">
-            <Button Text="Início"
-                    Clicked="MenuInicio_Clicked"
-                    HorizontalOptions="Center" /> <!-- botão do menu início -->
-            <Button Text="Sobre"
-                    Clicked="MenuSobre_Clicked"
-                    HorizontalOptions="Center" /> <!-- botão do menu sobre -->
-        </HorizontalStackLayout>
+            <!-- menu de navegação -->
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                <Button Text="Início"
+                        BackgroundColor="{StaticResource Secondary}"
+                        TextColor="White"
+                        CornerRadius="10"
+                        Padding="16,8"
+                        FontFamily="MontserratSemiBold"
+                        Clicked="MenuInicio_Clicked" />
+                <Button Text="Sobre"
+                        BackgroundColor="{StaticResource Tertiary}"
+                        TextColor="White"
+                        CornerRadius="10"
+                        Padding="16,8"
+                        FontFamily="MontserratSemiBold"
+                        Clicked="MenuSobre_Clicked" />
+            </HorizontalStackLayout>
 
-        <Frame Padding="10">
-            <VerticalStackLayout><!-- stack para organizar os elementos dentro do frame-->
-                <Grid RowDefinitions="Auto, Auto"
-                      ColumnDefinitions="*, *, 2*"><!-- grid para organizar os elementos de adultos e crianças -->
+            <!-- card principal do formulário -->
+            <Frame Padding="20" CornerRadius="16" HasShadow="True"
+                   BackgroundColor="White" BorderColor="{StaticResource Gray100}">
+                <VerticalStackLayout Spacing="16">
 
-                    <Label Grid.Row="0" Grid.Column="0"
-                           Text="Adultos:" />
+                    <!-- hóspedes -->
+                    <Label Text="👥 Hóspedes"
+                           FontFamily="MontserratBold"
+                           FontSize="16"
+                           TextColor="{StaticResource Secondary}" />
 
-                    <Label Grid.Row="0" Grid.Column="1"
-                           TextColor="{StaticResource Primary}"
-                           Text="{Binding Value}"
-                           BindingContext="{x:Reference stp_adultos}"/>
+                    <Grid RowDefinitions="Auto, Auto"
+                          ColumnDefinitions="*, *, 2*"
+                          ColumnSpacing="10"
+                          RowSpacing="12">
 
-                    <Stepper Grid.Row="0" Grid.Column="2"
-                             x:Name="stp_adultos"
-                             Minimum="0"
-                             Maximum="10"
-                             Increment="1" />
+                        <Label Grid.Row="0" Grid.Column="0"
+                               Text="Adultos:"
+                               FontFamily="MontserratSemiBold"
+                               VerticalTextAlignment="Center" />
 
-                    <Label Grid.Row="1" Grid.Column="0"
-                           Text="Crianças:" />
+                        <Label Grid.Row="0" Grid.Column="1"
+                               TextColor="{StaticResource Primary}"
+                               FontFamily="MontserratBold"
+                               FontSize="18"
+                               Text="{Binding Value}"
+                               BindingContext="{x:Reference stp_adultos}"
+                               VerticalTextAlignment="Center" />
 
-                    <Label Grid.Row="1" Grid.Column="1"
-                           TextColor="{StaticResource Primary}"
-                           Text="{Binding Value}"
-                           BindingContext="{x:Reference stp_criancas}"/>
+                        <Stepper Grid.Row="0" Grid.Column="2"
+                                 x:Name="stp_adultos"
+                                 Minimum="0" Maximum="10" Increment="1" />
 
-                    <Stepper Grid.Row="1" Grid.Column="2"
-                             x:Name="stp_criancas"
-                             Minimum="0"
-                             Maximum="10"
-                             Increment="1" />
-                </Grid>
+                        <Label Grid.Row="1" Grid.Column="0"
+                               Text="Crianças:"
+                               FontFamily="MontserratSemiBold"
+                               VerticalTextAlignment="Center" />
 
-                <Frame Padding="10" Margin="10"> <!--frame para organizar a escolha da suíte -->
-                    <VerticalStackLayout> <!-- para organizar os elementos dentro do frame -->
+                        <Label Grid.Row="1" Grid.Column="1"
+                               TextColor="{StaticResource Primary}"
+                               FontFamily="MontserratBold"
+                               FontSize="18"
+                               Text="{Binding Value}"
+                               BindingContext="{x:Reference stp_criancas}"
+                               VerticalTextAlignment="Center" />
 
-                        <Label Text="Escolha sua Suíte"
-                               TextTransform="Uppercase"
-                               FontSize="Subtitle"
-                               TextColor="{StaticResource Primary}"/>
+                        <Stepper Grid.Row="1" Grid.Column="2"
+                                 x:Name="stp_criancas"
+                                 Minimum="0" Maximum="10" Increment="1" />
+                    </Grid>
 
+                    <BoxView HeightRequest="1" Color="{StaticResource Gray100}" />
+
+                    <!-- escolha da suíte -->
+                    <Label Text="🛏️ Escolha sua Suíte"
+                           FontFamily="MontserratBold"
+                           FontSize="16"
+                           TextColor="{StaticResource Secondary}" />
+
+                    <Frame Padding="12" CornerRadius="12" HasShadow="False"
+                           BackgroundColor="{StaticResource Gray100}" BorderColor="Transparent">
                         <Picker x:Name="pck_quarto"
                                 Title="Selecione sua Acomodação"
-                                ItemDisplayBinding="{Binding Descricao}"/>
-                    </VerticalStackLayout>
-                </Frame>
+                                FontFamily="MontserratRegular"
+                                ItemDisplayBinding="{Binding Descricao}" />
+                    </Frame>
 
-                <Frame Padding="10"
-                       Margin="10">
-                    <VerticalStackLayout Spacing="10">
-                        <!-- para organizar os elementos dentro do frame espaçamento entre eles -->
+                    <BoxView HeightRequest="1" Color="{StaticResource Gray100}" />
 
-                        <Label Text="Período da Estadia"
-                               TextTransform="Uppercase"
-                               FontSize="Subtitle"
-                               TextColor="{StaticResource Primary}"/>
+                    <!-- período da estadia -->
+                    <Label Text="📅 Período da Estadia"
+                           FontFamily="MontserratBold"
+                           FontSize="16"
+                           TextColor="{StaticResource Secondary}" />
 
-                        <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
-                            <Label Text="Check-in:" />
+                    <Grid ColumnDefinitions="*, *" ColumnSpacing="12">
+                        <VerticalStackLayout Grid.Column="0" Spacing="4">
+                            <Label Text="Check-in:"
+                                   FontFamily="MontserratSemiBold"
+                                   FontSize="13"
+                                   TextColor="{StaticResource Gray600}" />
                             <DatePicker x:Name="dtpck_checkin"
                                         DateSelected="dtpck_checkin_DateSelected"
-                                        Format="dd/MM/yyyy" />
-                        </HorizontalStackLayout>
+                                        Format="dd/MM/yyyy"
+                                        FontFamily="MontserratRegular" />
+                        </VerticalStackLayout>
 
-                        <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
-                            <Label Text="Check-out:" />
+                        <VerticalStackLayout Grid.Column="1" Spacing="4">
+                            <Label Text="Check-out:"
+                                   FontFamily="MontserratSemiBold"
+                                   FontSize="13"
+                                   TextColor="{StaticResource Gray600}" />
                             <DatePicker x:Name="dtpck_checkout"
-                                        Format="dd/MM/yyyy" />
-                        </HorizontalStackLayout>
-                    </VerticalStackLayout>
-                </Frame>
+                                        Format="dd/MM/yyyy"
+                                        FontFamily="MontserratRegular" />
+                        </VerticalStackLayout>
+                    </Grid>
 
-                <Button Text="Avançar" Clicked="Button_Clicked"   />
+                </VerticalStackLayout>
+            </Frame>
 
-            </VerticalStackLayout>
-        </Frame>
+            <!-- botão avançar -->
+            <Button Text="Avançar →"
+                    FontFamily="MontserratBold"
+                    FontSize="18"
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="White"
+                    CornerRadius="14"
+                    Padding="20,14"
+                    Clicked="Button_Clicked"
+                    HorizontalOptions="Fill" />
 
-    </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 
 </ContentPage>
